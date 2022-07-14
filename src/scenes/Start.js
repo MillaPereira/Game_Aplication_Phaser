@@ -12,6 +12,7 @@ export default class Start extends Phaser.Scene {
         this.load.image('background', 'src/sprites/images/Background1.png');
         this.load.image('play', './src/sprites/images/Play.png')
         this.load.image('help', './src/sprites/images/Help.png');
+        this.load.image('sun', './src/sprites/images/Sol.png')
         
     }
 
@@ -64,13 +65,26 @@ export default class Start extends Phaser.Scene {
             }
 
         },500);
+
+        // ======= Solzinho =======
+        var sun = this.add.image(width/2, height/2 + 100, 'sun').setScale(0.04);
+
+        var angle = 0;
+
+        setInterval(()=>{
+            angle += 0.26;
+            sun.setRotation(angle);
+
+        },75);
     }
 
 
     update(){
-
+        
     };
 }
 
 // Rotação: https://phaser.io/examples/v2/sprites/sprite-rotation
 // Jogo exemplo: http://www.davidbrind.co.uk/toemv1.0/index.html
+// https://itch.io/games/free/genre-platformer
+// Jogo do João: https://github.com/vortex2jm/Dino_Run_Game

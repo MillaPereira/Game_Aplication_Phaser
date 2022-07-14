@@ -10,8 +10,8 @@ import GameOver from './scenes/GameOver.js'
 new Phaser.Game({
     type: Phaser.AUTO,
     width: 650,
-    height: 1000,
-    scene: [Start, Game, Pause, Info, GameOver],
+    height: 950,
+    scene: [Game, Start, Info,  Pause, GameOver],
     physics: {
         default: 'arcade',
         arcade: {
