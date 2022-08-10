@@ -36,7 +36,7 @@ export default class Start extends Phaser.Scene {
             mouseOver = false;
         });
         playButtom.on('pointerdown', () => {
-            this.scene.start('game');
+            this.scene.start('levels');
         });
         
         // ======= Botão de ajuda =======

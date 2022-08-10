@@ -2,10 +2,10 @@ import Phaser from '../lib/phaser.js'
 
 var level;
 
-export default class Pause extends Phaser.Scene {
+export default class Winner extends Phaser.Scene {
 
     constructor() {
-        super('pause');
+        super('winner');
     }
 
     init(data){
@@ -24,8 +24,6 @@ export default class Pause extends Phaser.Scene {
 
         this.add.image(width/2, height/2 - 100, 'background').setScale(1.10).setAlpha(0.5);
 
-        //this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#3498db");
-
         // ======= Botão de sair =======
         const quitButtom = this.add.image(width/2, height/2 - 100, 'quit').setScale(0.2).setInteractive();
         quitButtom.on('pointerover', () => {
@@ -39,8 +37,8 @@ export default class Pause extends Phaser.Scene {
             mouseOver = false;
         });
         quitButtom.on('pointerdown', () => {
-            this.scene.start('start');
-            this.scene.stop();
+            this.scene.start('levels');
+            this.scene.stop('game' + level);
         });
 
         // ======= Botão para returnar ao jogo =======
@@ -56,7 +54,7 @@ export default class Pause extends Phaser.Scene {
             mouseOver = false;
         });
         playButtom.on('pointerdown', () => {
-            this.scene.resume('game' + level);
+            this.scene.resume('game1');
             this.scene.stop();
         });
     }
