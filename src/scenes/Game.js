@@ -40,35 +40,37 @@ export default class Game extends Phaser.Scene {
         this.add.image(width/2, height/2 - 100, 'background').setScale(1.10);
 
         // ======= Adicionando plataforma =======
-        const plataform = this.physics.add.staticImage(width/2, height, 'plataform');
-        plataform.setImmovable(true);
+        //const plataform = this.physics.add.staticImage(width/2, height, 'plataform');
+        //plataform.setImmovable(true);
 
-        // ======= Botão de Pausa =======
-        const pauseButtom = this.add.image(30,30, 'pause').setScale(0.2).setInteractive();
-        pauseButtom.on('pointerover', () => {
-            pauseButtom.setScale(0.225);
-            pauseButtom.setTint(0x00FF00)
-            mouseOver = true;
-        });
-        pauseButtom.on('pointerout', () => {
-            pauseButtom.setScale(0.2);
-            pauseButtom.setTint(0xffffff);
-            mouseOver = false;
-        });
-        pauseButtom.on('pointerdown', () => {
-            this.scene.launch('pause');
-            this.scene.pause();
-        });
+        const plataform = this.matter.add.image(350, 500, 'platform', null, { isStatic: true }).setScale(2, 0.5);
 
-        // ======= Criando os blocos =======
-        const blocoM1 = this.physics.add.image(width/2, height/2, 'timber_1x2');
+        // // ======= Botão de Pausa =======
+        // const pauseButtom = this.add.image(30,30, 'pause').setScale(0.2).setInteractive();
+        // pauseButtom.on('pointerover', () => {
+        //     pauseButtom.setScale(0.225);
+        //     pauseButtom.setTint(0x00FF00)
+        //     mouseOver = true;
+        // });
+        // pauseButtom.on('pointerout', () => {
+        //     pauseButtom.setScale(0.2);
+        //     pauseButtom.setTint(0xffffff);
+        //     mouseOver = false;
+        // });
+        // pauseButtom.on('pointerdown', () => {
+        //     this.scene.launch('pause');
+        //     this.scene.pause();
+        // });
 
-        const blocoR1 = this.physics.add.image(width/2 + 40, height/2 - 200, 'rock_3x1');
+        // // ======= Criando os blocos =======
+        // const blocoM1 = this.physics.add.image(width/2, height/2, 'timber_1x2');
 
-        // ======= Adicionando colisão entre os objetos =======
-        this.physics.add.collider(blocoM1, plataform);
-        this.physics.add.collider(blocoR1, plataform);
-        this.physics.add.collider(blocoR1, blocoM1);
+        // const blocoR1 = this.physics.add.image(width/2 + 40, height/2 - 200, 'rock_3x1');
+
+        // // ======= Adicionando colisão entre os objetos =======
+        // this.physics.add.collider(blocoM1, plataform);
+        // this.physics.add.collider(blocoR1, plataform);
+        // this.physics.add.collider(blocoR1, blocoM1);
 
         // this.game.physics.startSystem(Phaser.Physics.P2JS);
 		// this.game.physics.p2.setImpactEvents(true);

@@ -13,7 +13,8 @@ new Phaser.Game({
     height: 950,
     scene: [Game, Start, Info,  Pause, GameOver],
     physics: {
-        default: 'arcade',
+        //default: 'arcade',
+        default: 'matter',
         arcade: {
             gravity: {
                 y: 1000
